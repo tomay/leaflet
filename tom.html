@@ -17,8 +17,34 @@
 <div id="map"></div>
 
 <script>
-var map = L.map('map').setView([-16.7401, 48.9279], 10);
-L.tileLayer('http://127.0.0.1:7890/grd2/{z}/{x}/{y}.png', {
-      attribution: 'Map data &copy; <a href="http://www.naturmap.org">NatureMap</a> contributors, <a href="http://data.rebioma.net">REBIOMA</a>'
-    }).addTo(map);
+
+var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/950091b358f4414d81a9c6f5044d082c/{styleId}/256/{z}/{x}/{y}.png',
+    cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
+
+var minimal  = L.tileLayer(cloudmadeUrl, {styleId: 22677, attribution: cloudmadeAttribution}),
+    midnight = L.tileLayer(cloudmadeUrl, {styleId: 999,   attribution: cloudmadeAttribution}),
+    grid     = L.tileLayer('http://127.0.0.1:7890/grd2/{z}/{x}/{y}.png');
+
+var map = L.map('map', {
+    center: new L.LatLng(-16.7401, 48.9279),
+    zoom: 10,
+    layers: [minimal, grid]
+});
+
+var baseMaps = {
+    "Minimal": minimal,
+    "Night View": midnight
+};
+
+var overlayMaps = {
+    "Grids": grid
+};
+
+L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+// function onMapClick(e) {
+//     alert("You clicked the map at " + e.latlng);
+// }
+// map.on('click', onMapClick);
+
 </script>
