@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+
+<Parameters>
+  <Parameter name="bounds">-180,-85.05112877980659,180,85.05112877980659</Parameter>
+  <Parameter name="center">0,0,2</Parameter>
+  <Parameter name="format">png</Parameter>
+  <Parameter name="minzoom">0</Parameter>
+  <Parameter name="maxzoom">22</Parameter>
+</Parameters>
+
+
+<Style name="richlemur" filter-mode="first" >
+  <Rule>
+    <Filter>([curr] = 13)</Filter>
+    <PolygonSymbolizer fill="#b30000" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 12)</Filter>
+    <PolygonSymbolizer fill="#e60000" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 11)</Filter>
+    <PolygonSymbolizer fill="#e60000" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 10)</Filter>
+    <PolygonSymbolizer fill="#ff0000" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 9)</Filter>
+    <PolygonSymbolizer fill="#ff0000" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 8)</Filter>
+    <PolygonSymbolizer fill="#ff0000" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 7)</Filter>
+    <PolygonSymbolizer fill="#ff3333" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 6)</Filter>
+    <PolygonSymbolizer fill="#ff3333" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 5)</Filter>
+    <PolygonSymbolizer fill="#ff4d4d" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 4)</Filter>
+    <PolygonSymbolizer fill="#ff4d4d" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 3)</Filter>
+    <PolygonSymbolizer fill="#ff4d4d" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 2)</Filter>
+    <PolygonSymbolizer fill="#ffafaf" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 1)</Filter>
+    <PolygonSymbolizer fill="#ffc3c3" />
+  </Rule>
+  <Rule>
+    <Filter>([curr] = 0)</Filter>
+    <PolygonSymbolizer fill="#ffeaea" />
+  </Rule>
+</Style>
+<Layer name="richlemur"
+  srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>richlemur</StyleName>
+    <Datasource>
+       <Parameter name="file"><![CDATA[/home/tomay/Documents/MapBox/project/grdnew/layers/richlemur/richlemur.shp]]></Parameter>
+       <Parameter name="id"><![CDATA[richlemur]]></Parameter>
+       <Parameter name="project"><![CDATA[grdnew]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+       <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+
+</Map>
