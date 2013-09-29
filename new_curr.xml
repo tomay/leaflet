@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+  <Parameters>
+    <Parameter name="bounds">-180,-85.05112877980659,180,85.05112877980659</Parameter>
+    <Parameter name="center">0,0,2</Parameter>
+    <Parameter name="format">png</Parameter>
+    <Parameter name="minzoom">0</Parameter>
+    <Parameter name="maxzoom">22</Parameter>
+  </Parameters>
+  <Style name="richlemur" filter-mode="first">
+    <Rule>
+      <Filter>[curr] &gt;= 13</Filter>
+      <PolygonSymbolizer fill="#99E699"/>
+    </Rule>
+    <Rule>
+      <Filter>[curr] &lt;= 13 and [curr] &gt;= 11</Filter>
+      <PolygonSymbolizer fill="#84CB84"/>
+    </Rule>
+    <Rule>
+      <Filter>[curr] &lt;= 11 and [curr] &gt;= 9</Filter>
+      <PolygonSymbolizer fill="#70B070"/>
+    </Rule>
+    <Rule>
+      <Filter>[curr] &lt;= 9 and [curr] &gt;= 7</Filter>
+      <PolygonSymbolizer fill="#5B955B"/>
+    </Rule>
+    <Rule>
+      <Filter>[curr] &lt;= 7 and [curr] &gt;= 5</Filter>
+      <PolygonSymbolizer fill="#477A47"/>
+    </Rule>
+    <Rule>
+      <Filter>[curr] &lt;= 5 and [curr] &gt;= 3</Filter>
+      <PolygonSymbolizer fill="#325F32"/>
+    </Rule>
+    <Rule>
+      <Filter>[curr] &lt;= 3</Filter>
+      <PolygonSymbolizer fill="#1E441E"/>
+    </Rule>
+  </Style>
+  <Layer name="richlemur" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <StyleName>richlemur</StyleName>
+    <Datasource>
+      <Parameter name="file"><![CDATA[/home/tomay/Documents/MapBox/project/grdnew/layers/richlemur/richlemur.shp]]></Parameter>
+      <Parameter name="id"><![CDATA[richlemur]]></Parameter>
+      <Parameter name="project"><![CDATA[grdnew]]></Parameter>
+      <Parameter name="srs"><![CDATA[+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs]]></Parameter>
+      <Parameter name="type"><![CDATA[shape]]></Parameter>
+    </Datasource>
+  </Layer>
+</Map>

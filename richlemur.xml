@@ -13,32 +13,32 @@
 
 <Style name="richlemur" filter-mode="first" >
   <Rule>
-    <Filter>[curr] &gt;= 13</Filter>
-    <PolygonSymbolizer fill="#b30000" />
+    <Filter>[curr] &gt;= 12</Filter>
+    <PolygonSymbolizer fill="#FF0080" />
   </Rule>
   <Rule>
-    <Filter>[curr] &lt; 13 and [curr] &gt;= 10</Filter>
-    <PolygonSymbolizer fill="#e60000" />
+    <Filter>[curr] &lt; 12 and [curr] &gt;= 10</Filter>
+    <PolygonSymbolizer fill="#D40095" />
   </Rule>
   <Rule>
-    <Filter>[curr] &lt; 10 and [curr] &gt;= 8</Filter>
-    <PolygonSymbolizer fill="#ff0000" />
+    <Filter>[curr] &lt; 10 and [curr] &gt;= 9</Filter>
+    <PolygonSymbolizer fill="#AA00AA" />
   </Rule>
   <Rule>
-    <Filter>[curr] &lt; 8 and [curr] &gt;= 6</Filter>
-    <PolygonSymbolizer fill="#ff3333" />
+    <Filter>[curr] &lt; 9 and [curr] &gt;= 7</Filter>
+    <PolygonSymbolizer fill="#7F00BF" />
   </Rule>
   <Rule>
-    <Filter>[curr] &lt; 6 and [curr] &gt;= 3</Filter>
-    <PolygonSymbolizer fill="#ff4d4d" />
+    <Filter>[curr] &lt; 7 and [curr] &gt;= 5</Filter>
+    <PolygonSymbolizer fill="#5500D4" />
   </Rule>
   <Rule>
-    <Filter>[curr] &lt; 3 and [curr] &gt;= 1</Filter>
-    <PolygonSymbolizer fill="#ffafaf" />
+    <Filter>[curr] &lt; 5 and [curr] &gt;= 3</Filter>
+    <PolygonSymbolizer fill="#2A00E9" />
   </Rule>
   <Rule>
-    <Filter>[curr] &lt;= 1</Filter>
-    <PolygonSymbolizer fill="#ffeaea" />
+    <Filter>[curr] &lt;= 3</Filter>
+    <PolygonSymbolizer fill="#8080FE" />
   </Rule>
 </Style>
 <Layer name="richlemur"

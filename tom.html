@@ -23,13 +23,14 @@ var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/950091b358f4414d81a9c6f5044d08
 
 var minimal  = L.tileLayer(cloudmadeUrl, {styleId: 22677, attribution: cloudmadeAttribution}),
     midnight = L.tileLayer(cloudmadeUrl, {styleId: 999,   attribution: cloudmadeAttribution}),
-    grid     = L.tileLayer('http://127.0.0.1:7890/grd2/{z}/{x}/{y}.png'),
-    lemur    = L.tileLayer('http://127.0.0.1:7890/richlemur/{z}/{x}/{y}.png');
+    curr     = L.tileLayer('http://127.0.0.1:7890/curr/{z}/{x}/{y}.png'),
+    a2100    = L.tileLayer('http://127.0.0.1:7890/a2100/{z}/{x}/{y}.png'),
+    b2100    = L.tileLayer('http://127.0.0.1:7890/b2100/{z}/{x}/{y}.png');
 
 var map = L.map('map', {
     center: new L.LatLng(-16.7401, 48.9279),
     zoom: 10,
-    layers: [minimal, grid]
+    layers: [minimal]
 });
 
 var baseMaps = {
@@ -38,8 +39,9 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-    "Grids": grid,
-    "Lemurs": lemur
+    "current": curr,
+    "2100 [a2a]": a2100,
+    "2100 [b2a]": b2100
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);

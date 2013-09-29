@@ -1,0 +1,87 @@
+# R notes
+
+a) Get breaks
+
+require(foreign)
+x <- read.dbf("richlemur.dbf")
+str(x)
+max(x[,2])
+
+library(classInt)
+# classIntervals(x, n = 5, style = "jenks")
+
+ints_curr = classIntervals(x[,2], n = 7, style = "kmeans", dataPrecision = 0)
+ints_a2100 = classIntervals(x[,3], n = 7, style = "kmeans", dataPrecision = 0)
+ints3_b2100 = classIntervals(x[,4], n = 7, style = "kmeans", dataPrecision = 0)
+t
+# how to get the breaks back from this (programatically)? ?
+
+[curr]
+ [0,4)   [4,7)   [7,9)  [9,12) [12,13]
+ [0,3)   [3,5)   [5,7)   [7,9)  [9,10) [10,12) [12,13]
+
+[a2100]
+ [0,1)  [1,3)  [3,5)  [5,7) [7,10]
+
+[b2100]
+ [0,2)   [2,4)   [4,7)  [7,10) [10,12]
+
+
+b) ramp rgb
+see
+http://www.zonums.com/online/color_ramp/
+
+basically take params in the form
+255,0,128 # start
+13 # n colors - split range into 13 equal values
+0,255,128 # mid
+12 # n colors  - split range..
+0,0,255 # end
+
+ruby script to do this
+
+c) convert rgb to hex with ruby script
+
+
+
+
+## parse and save xml with nokogiri
+require 'nokogiri'
+f = File.open("mada/richlemur.xml")
+doc = Nokogiri::XML(f, &:noblanks)
+ruleset = doc.search("//Style //Rule") # assumes one shapefile?
+# ruleset.size => 7
+ruleset.each {|rule|
+  rule.children.each {|child|
+    p child.text if child.name == "Filter"
+    p child.attributes["fill"].value if child.name == "PolygonSymbolizer"
+  }
+
+}
+
+ruleset.first
+# This is what you want to change
+ruleset.first.to_xml
+=> "<Rule>\n    <Filter>[curr] &gt;= 12</Filter>\n    <PolygonSymbolizer fill=\"#FF0080\"/>\n  </Rule>"
+
+
+## ADD NEW NODES TO END
+require 'nokogiri'
+f = File.open("richlemur.xml")
+doc = Nokogiri::XML(f, &:noblanks)
+
+rule = Nokogiri::XML::Node.new "Rule", doc
+filt = Nokogiri::XML::Node.new "Filter", doc
+filt.content = "[curr] = test"
+
+poly = Nokogiri::XML::Node.new "PolygonSymbolizer", doc
+poly["fill"] = "#8080FE"
+
+rule << filt
+rule << poly
+
+body = doc.at_css("Style")
+body << rule
+
+# export
+File.open('whatever.xml', 'w') { |f| f.print(doc.to_xml) }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map srs="+init=epsg:3857">
+<Style name="elevation">
+  <Rule>
+    <RasterSymbolizer>
+      <RasterColorizer default-mode="linear" default-color="white" epsilon="0.001">
+        <stop color="blue"        value = "-1000"  />
+        <stop color="red"         value = "-500"   mode = "discrete" />
+        <stop color="yellow"      value = "0"      />
+        <stop                     value = "5"      />
+        <stop color="red"         value = "10"     />
+        <stop color="green"       value = "15"     />
+        <stop color="black"       value = "17"     mode = "exact"    />
+        <stop color="indigo"      value = "100"    />
+      </RasterColorizer>
+    </RasterSymbolizer>
+  </Rule>
+</Style>
+
+<Layer name="dataraster">
+    <StyleName>elevation</StyleName>
+    <Datasource>
+        <Parameter name="file">testout.tif</Parameter>
+        <Parameter name="type">raster</Parameter>
+        <Parameter name="lox">4679130.55208</Parameter>
+        <Parameter name="loy">-3050164.57976</Parameter>
+        <Parameter name="hix">5701539.37853</Parameter>
+        <Parameter name="hiy">-1311585.02086</Parameter>
+    </Datasource>
+</Layer>
+</Map>
